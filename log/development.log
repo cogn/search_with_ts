@@ -1,0 +1,438 @@
+  [1m[36m (120.7ms)[0m  [1mCREATE TABLE `articles` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `author_id` int(11), `name` varchar(255), `content` text, `published_at` datetime, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (99.4ms)[0m  CREATE TABLE `authors` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `first_name` varchar(255), `last_name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (99.2ms)[0m  [1mCREATE TABLE `comments` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `article_id` int(11), `name` varchar(255), `content` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (99.7ms)[0m  CREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB
+  [1m[36m (585.7ms)[0m  [1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM `schema_migrations`
+  [1m[36m (41.2ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20111208233645')[0m
+  [1m[35m (49.8ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20111118235239')
+  [1m[36m (41.7ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20111118235527')[0m
+  [1m[35m (1.2ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (14.0ms)[0m  INSERT INTO `authors` (`created_at`, `first_name`, `last_name`, `updated_at`) VALUES ('2012-11-16 04:29:37', 'Bruce', 'Wayne', '2012-11-16 04:29:37')
+  [1m[36m (62.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `authors` (`created_at`, `first_name`, `last_name`, `updated_at`) VALUES ('2012-11-16 04:29:37', 'Clark', 'Kent', '2012-11-16 04:29:37')[0m
+  [1m[35m (40.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `articles` (`author_id`, `content`, `created_at`, `name`, `published_at`, `updated_at`) VALUES (1, 'Batman is a fictional character created by the artist Bob Kane and writer Bill Finger. A comic book superhero, Batman first appeared in Detective Comics #27 (May 1939), and since then has appeared primarily in publications by DC Comics. Originally referred to as \"The Bat-Man\" and still referred to at times as \"The Batman\", he is additionally known as \"The Caped Crusader\", \"The Dark Knight\", and the \"World\'s Greatest Detective,\" among other titles. (from Wikipedia)\n', '2012-11-16 04:29:37', 'Batman', '2012-11-02 04:29:37', '2012-11-16 04:29:37')
+  [1m[36m (34.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `articles` (`author_id`, `content`, `created_at`, `name`, `published_at`, `updated_at`) VALUES (2, 'Superman is a fictional comic book superhero appearing in publications by DC Comics, widely considered to be an American cultural icon. Created by American writer Jerry Siegel and Canadian-born American artist Joe Shuster in 1932 while both were living in Cleveland, Ohio, and sold to Detective Comics, Inc. (later DC Comics) in 1938, the character first appeared in Action Comics #1 (June 1938) and subsequently appeared in various radio serials, television programs, films, newspaper strips, and video games. (from Wikipedia)\n', '2012-11-16 04:29:37', 'Superman', '2012-10-26 04:29:37', '2012-11-16 04:29:37')[0m
+  [1m[35m (30.7ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `articles` (`author_id`, `content`, `created_at`, `name`, `published_at`, `updated_at`) VALUES (2, 'Krypton is a fictional planet in the DC Comics universe, and the native world of the super-heroes Superman and, in some tellings, Supergirl and Krypto the Superdog. Krypton has been portrayed consistently as having been destroyed just after Superman\'s flight from the planet, with exact details of its destruction varying by time period, writers and franchise. Kryptonians were the dominant people of Krypton. (from Wikipedia)\n', '2012-11-16 04:29:37', 'Krypton', '2012-10-12 04:29:37', '2012-11-16 04:29:37')
+  [1m[36m (30.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `comments` (`article_id`, `content`, `created_at`, `name`, `updated_at`) VALUES (2, 'I want to meet Superman again, does anyone know where I can find him?\n', '2012-11-16 04:29:37', 'Lois Lane', '2012-11-16 04:29:37')[0m
+  [1m[35m (33.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `comments` (`article_id`, `content`, `created_at`, `name`, `updated_at`) VALUES (1, 'Haha, Batman, you will see your bat signal tonight!\n', '2012-11-16 04:29:37', 'The Joker', '2012-11-16 04:29:37')
+  [1m[36m (31.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `comments` (`article_id`, `content`, `created_at`, `name`, `updated_at`) VALUES (1, 'Enough with the games Joker.\n', '2012-11-16 04:29:37', 'Robin', '2012-11-16 04:29:37')[0m
+  [1m[35m (31.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `comments` (`article_id`, `content`, `created_at`, `name`, `updated_at`) VALUES (1, 'Did someone say games?\n', '2012-11-16 04:29:37', 'Riddler', '2012-11-16 04:29:37')
+  [1m[36m (31.9ms)[0m  [1mCOMMIT[0m
+  [1m[36m (0.1ms)[0m  [1mSELECT @@global.sql_mode, @@session.sql_mode;[0m
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-16 10:02:51 +0530
+  Processing by ArticlesController#index as HTML
+  [1m[32mSphinx Query (22.2ms)[0m  [1m[0m
+  [1m[32mSphinx[0m  Found 3 results
+  [1m[36mArticle Load (0.6ms)[0m  [1mSELECT `articles`.* FROM `articles` WHERE `articles`.`id` IN (1, 2, 3)[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `comments` WHERE `comments`.`article_id` = 1
+  [1m[36mAuthor Load (0.3ms)[0m  [1mSELECT `authors`.* FROM `authors` WHERE `authors`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `comments` WHERE `comments`.`article_id` = 2
+  [1m[36mAuthor Load (0.3ms)[0m  [1mSELECT `authors`.* FROM `authors` WHERE `authors`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `comments` WHERE `comments`.`article_id` = 3
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `authors`.* FROM `authors` WHERE `authors`.`id` = 2 LIMIT 1[0m
+Rendered articles/index.html.erb within layouts/application (126.8ms)
+Compiled application.css  (1ms)  (pid 6862)
+Compiled articles.css  (43ms)  (pid 6862)
+Compiled comments.css  (1ms)  (pid 6862)
+Compiled application.js  (20ms)  (pid 6862)
+Compiled jquery.js  (1ms)  (pid 6862)
+Compiled jquery_ujs.js  (0ms)  (pid 6862)
+Compiled articles.js  (484ms)  (pid 6862)
+Compiled comments.js  (132ms)  (pid 6862)
+Completed 200 OK in 997ms (Views: 933.2ms | ActiveRecord: 4.2ms | Sphinx: 22.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-16 10:02:52 +0530
+Served asset /application.css - 200 OK (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2012-11-16 10:02:52 +0530
+Served asset /comments.css - 200 OK (6ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-16 10:02:52 +0530
+Served asset /jquery_ujs.js - 200 OK (1ms)
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2012-11-16 10:02:52 +0530
+Served asset /articles.js - 200 OK (3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-16 10:02:52 +0530
+Served asset /jquery.js - 200 OK (3ms)
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2012-11-16 10:02:52 +0530
+Served asset /articles.css - 200 OK (1ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2012-11-16 10:02:52 +0530
+Served asset /comments.js - 200 OK (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-16 10:02:52 +0530
+Served asset /application.js - 200 OK (0ms)
+
+
+Started GET "/articles?utf8=%E2%9C%93&search=test" for 127.0.0.1 at 2012-11-16 10:03:01 +0530
+  Processing by ArticlesController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"test"}
+  [1m[32mSphinx Query (26.3ms)[0m  [1mtest[0m
+  [1m[32mSphinx[0m  Found 0 results
+Rendered articles/index.html.erb within layouts/application (27.5ms)
+Completed 200 OK in 40ms (Views: 8.7ms | ActiveRecord: 0.7ms | Sphinx: 26.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-16 10:03:01 +0530
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2012-11-16 10:03:01 +0530
+Served asset /articles.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2012-11-16 10:03:01 +0530
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2012-11-16 10:03:01 +0530
+Served asset /articles.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-16 10:03:01 +0530
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-16 10:03:01 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2012-11-16 10:03:01 +0530
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-16 10:03:01 +0530
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/articles?utf8=%E2%9C%93&search=book" for 127.0.0.1 at 2012-11-16 10:03:12 +0530
+  Processing by ArticlesController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"book"}
+  [1m[32mSphinx Query (1.8ms)[0m  [1mbook[0m
+  [1m[32mSphinx[0m  Found 2 results
+  [1m[35mArticle Load (0.3ms)[0m  SELECT `articles`.* FROM `articles` WHERE `articles`.`id` IN (1, 2)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `comments` WHERE `comments`.`article_id` = 1[0m
+  [1m[35mAuthor Load (0.1ms)[0m  SELECT `authors`.* FROM `authors` WHERE `authors`.`id` = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `comments` WHERE `comments`.`article_id` = 2[0m
+  [1m[35mAuthor Load (0.1ms)[0m  SELECT `authors`.* FROM `authors` WHERE `authors`.`id` = 2 LIMIT 1
+Rendered articles/index.html.erb within layouts/application (22.9ms)
+Completed 200 OK in 33ms (Views: 24.6ms | ActiveRecord: 3.0ms | Sphinx: 1.8ms)
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2012-11-16 10:03:12 +0530
+Served asset /articles.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-16 10:03:12 +0530
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2012-11-16 10:03:12 +0530
+Served asset /articles.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-16 10:03:12 +0530
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2012-11-16 10:03:12 +0530
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2012-11-16 10:03:12 +0530
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-16 10:03:12 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-16 10:03:12 +0530
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/articles?utf8=%E2%9C%93&search=meet" for 127.0.0.1 at 2012-11-16 10:05:44 +0530
+  Processing by ArticlesController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"meet"}
+  [1m[32mSphinx Query (1.4ms)[0m  [1mmeet[0m
+  [1m[32mSphinx[0m  Found 1 result
+  [1m[36mArticle Load (0.3ms)[0m  [1mSELECT `articles`.* FROM `articles` WHERE `articles`.`id` IN (2)[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `comments` WHERE `comments`.`article_id` = 2
+  [1m[36mAuthor Load (0.1ms)[0m  [1mSELECT `authors`.* FROM `authors` WHERE `authors`.`id` = 2 LIMIT 1[0m
+Rendered articles/index.html.erb within layouts/application (20.0ms)
+Completed 200 OK in 29ms (Views: 22.2ms | ActiveRecord: 2.6ms | Sphinx: 1.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-16 10:05:44 +0530
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2012-11-16 10:05:44 +0530
+Served asset /articles.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-16 10:05:44 +0530
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-16 10:05:44 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2012-11-16 10:05:44 +0530
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2012-11-16 10:05:44 +0530
+Served asset /articles.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2012-11-16 10:05:44 +0530
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-16 10:05:44 +0530
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/articles?utf8=%E2%9C%93&search=meet" for 127.0.0.1 at 2012-11-16 10:08:21 +0530
+  Processing by ArticlesController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"meet"}
+  [1m[32mSphinx Query (1.4ms)[0m  [1mmeet[0m
+  [1m[32mSphinx[0m  Found 1 result
+  [1m[35mArticle Load (0.1ms)[0m  SELECT `articles`.* FROM `articles` WHERE `articles`.`id` IN (2)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `comments` WHERE `comments`.`article_id` = 2[0m
+  [1m[35mAuthor Load (0.1ms)[0m  SELECT `authors`.* FROM `authors` WHERE `authors`.`id` = 2 LIMIT 1
+Rendered articles/index.html.erb within layouts/application (49.4ms)
+Compiled application.css  (1ms)  (pid 6862)
+Completed 200 OK in 64ms (Views: 57.5ms | ActiveRecord: 2.4ms | Sphinx: 1.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-16 10:08:22 +0530
+Served asset /application.css - 200 OK (0ms)
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2012-11-16 10:08:22 +0530
+Served asset /articles.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-16 10:08:22 +0530
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2012-11-16 10:08:22 +0530
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-16 10:08:22 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2012-11-16 10:08:22 +0530
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-16 10:08:22 +0530
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2012-11-16 10:08:22 +0530
+Served asset /articles.js - 304 Not Modified (0ms)
+  [1m[36m (62.7ms)[0m  [1mDROP TABLE `articles`[0m
+  [1m[35m (141.9ms)[0m  CREATE TABLE `articles` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `author_id` int(11), `name` varchar(255), `content` text, `published_at` datetime, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (57.8ms)[0m  [1mDROP TABLE `authors`[0m
+  [1m[35m (92.2ms)[0m  CREATE TABLE `authors` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `first_name` varchar(255), `last_name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (49.6ms)[0m  [1mDROP TABLE `comments`[0m
+  [1m[35m (91.8ms)[0m  CREATE TABLE `comments` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `article_id` int(11), `name` varchar(255), `content` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM `schema_migrations`[0m
+  [1m[35m (1.0ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+  [1m[36m (62.6ms)[0m  [1mDROP TABLE `articles`[0m
+  [1m[35m (91.9ms)[0m  CREATE TABLE `articles` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `author_id` int(11), `name` varchar(255), `content` text, `published_at` datetime, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (49.5ms)[0m  [1mDROP TABLE `authors`[0m
+  [1m[35m (93.4ms)[0m  CREATE TABLE `authors` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `first_name` varchar(255), `last_name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (51.2ms)[0m  [1mDROP TABLE `comments`[0m
+  [1m[35m (83.5ms)[0m  CREATE TABLE `comments` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `article_id` int(11), `name` varchar(255), `content` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.0ms)[0m  [1mSELECT version FROM `schema_migrations`[0m
+  [1m[35m (1.3ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+  [1m[36m (52.6ms)[0m  [1mDROP TABLE `articles`[0m
+  [1m[35m (108.6ms)[0m  CREATE TABLE `articles` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `author_id` int(11), `name` varchar(255), `content` text, `published_at` datetime, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (41.1ms)[0m  [1mDROP TABLE `authors`[0m
+  [1m[35m (100.2ms)[0m  CREATE TABLE `authors` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `first_name` varchar(255), `last_name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (69.5ms)[0m  [1mDROP TABLE `comments`[0m
+  [1m[35m (83.6ms)[0m  CREATE TABLE `comments` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `article_id` int(11), `name` varchar(255), `content` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM `schema_migrations`[0m
+  [1m[35m (1.5ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+  [1m[36m (59.5ms)[0m  [1mDROP TABLE `articles`[0m
+  [1m[35m (91.9ms)[0m  CREATE TABLE `articles` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `author_id` int(11), `name` varchar(255), `content` text, `published_at` datetime, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (49.6ms)[0m  [1mDROP TABLE `authors`[0m
+  [1m[35m (91.7ms)[0m  CREATE TABLE `authors` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `first_name` varchar(255), `last_name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (68.5ms)[0m  [1mDROP TABLE `comments`[0m
+  [1m[35m (84.8ms)[0m  CREATE TABLE `comments` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `article_id` int(11), `name` varchar(255), `content` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM `schema_migrations`[0m
+  [1m[35m (1.0ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+  [1m[36m (60.8ms)[0m  [1mDROP TABLE `articles`[0m
+  [1m[35m (100.3ms)[0m  CREATE TABLE `articles` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `author_id` int(11), `name` varchar(255), `content` text, `published_at` datetime, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (49.5ms)[0m  [1mDROP TABLE `authors`[0m
+  [1m[35m (100.1ms)[0m  CREATE TABLE `authors` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `first_name` varchar(255), `last_name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (76.8ms)[0m  [1mDROP TABLE `comments`[0m
+  [1m[35m (83.4ms)[0m  CREATE TABLE `comments` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `article_id` int(11), `name` varchar(255), `content` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.0ms)[0m  [1mSELECT version FROM `schema_migrations`[0m
+  [1m[35m (1.1ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+  [1m[36m (62.2ms)[0m  [1mDROP TABLE `articles`[0m
+  [1m[35m (83.6ms)[0m  CREATE TABLE `articles` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `author_id` int(11), `name` varchar(255), `content` text, `published_at` datetime, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (49.7ms)[0m  [1mDROP TABLE `authors`[0m
+  [1m[35m (91.7ms)[0m  CREATE TABLE `authors` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `first_name` varchar(255), `last_name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (51.8ms)[0m  [1mDROP TABLE `comments`[0m
+  [1m[35m (84.8ms)[0m  CREATE TABLE `comments` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `article_id` int(11), `name` varchar(255), `content` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM `schema_migrations`[0m
+  [1m[35m (1.2ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+  [1m[36m (49.7ms)[0m  [1mDROP TABLE `articles`[0m
+  [1m[35m (100.1ms)[0m  CREATE TABLE `articles` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `author_id` int(11), `name` varchar(255), `content` text, `published_at` datetime, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (41.0ms)[0m  [1mDROP TABLE `authors`[0m
+  [1m[35m (100.3ms)[0m  CREATE TABLE `authors` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `first_name` varchar(255), `last_name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (76.3ms)[0m  [1mDROP TABLE `comments`[0m
+  [1m[35m (117.2ms)[0m  CREATE TABLE `comments` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `article_id` int(11), `name` varchar(255), `content` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM `schema_migrations`[0m
+  [1m[35m (1.4ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+  [1m[36m (44.9ms)[0m  [1mDROP TABLE `articles`[0m
+  [1m[35m (100.3ms)[0m  CREATE TABLE `articles` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `author_id` int(11), `name` varchar(255), `content` text, `published_at` datetime, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (40.9ms)[0m  [1mDROP TABLE `authors`[0m
+  [1m[35m (92.0ms)[0m  CREATE TABLE `authors` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `first_name` varchar(255), `last_name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (60.5ms)[0m  [1mDROP TABLE `comments`[0m
+  [1m[35m (100.3ms)[0m  CREATE TABLE `comments` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `article_id` int(11), `name` varchar(255), `content` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM `schema_migrations`[0m
+  [1m[35m (1.0ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+  [1m[36m (66.7ms)[0m  [1mDROP TABLE `articles`[0m
+  [1m[35m (76.3ms)[0m  CREATE TABLE `articles` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `author_id` int(11), `name` varchar(255), `content` text, `published_at` datetime, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (41.1ms)[0m  [1mDROP TABLE `authors`[0m
+  [1m[35m (100.1ms)[0m  CREATE TABLE `authors` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `first_name` varchar(255), `last_name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (80.2ms)[0m  [1mDROP TABLE `comments`[0m
+  [1m[35m (150.6ms)[0m  CREATE TABLE `comments` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `article_id` int(11), `name` varchar(255), `content` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM `schema_migrations`[0m
+  [1m[35m (1.6ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+  [1m[36m (38.4ms)[0m  [1mDROP TABLE `articles`[0m
+  [1m[35m (116.9ms)[0m  CREATE TABLE `articles` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `author_id` int(11), `name` varchar(255), `content` text, `published_at` datetime, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (57.5ms)[0m  [1mDROP TABLE `authors`[0m
+  [1m[35m (103.3ms)[0m  CREATE TABLE `authors` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `first_name` varchar(255), `last_name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (27.7ms)[0m  [1mDROP TABLE `comments`[0m
+  [1m[35m (75.3ms)[0m  CREATE TABLE `comments` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `article_id` int(11), `name` varchar(255), `content` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM `schema_migrations`[0m
+  [1m[35m (1.0ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+  [1m[36m (48.9ms)[0m  [1mDROP TABLE `articles`[0m
+  [1m[35m (108.5ms)[0m  CREATE TABLE `articles` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `author_id` int(11), `name` varchar(255), `content` text, `published_at` datetime, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (49.2ms)[0m  [1mDROP TABLE `authors`[0m
+  [1m[35m (91.9ms)[0m  CREATE TABLE `authors` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `first_name` varchar(255), `last_name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (49.2ms)[0m  [1mDROP TABLE `comments`[0m
+  [1m[35m (92.0ms)[0m  CREATE TABLE `comments` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `article_id` int(11), `name` varchar(255), `content` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.0ms)[0m  [1mSELECT version FROM `schema_migrations`[0m
+  [1m[35m (1.2ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+  [1m[36m (48.3ms)[0m  [1mDROP TABLE `articles`[0m
+  [1m[35m (108.6ms)[0m  CREATE TABLE `articles` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `author_id` int(11), `name` varchar(255), `content` text, `published_at` datetime, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (49.5ms)[0m  [1mDROP TABLE `authors`[0m
+  [1m[35m (116.7ms)[0m  CREATE TABLE `authors` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `first_name` varchar(255), `last_name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (56.8ms)[0m  [1mDROP TABLE `comments`[0m
+  [1m[35m (83.6ms)[0m  CREATE TABLE `comments` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `article_id` int(11), `name` varchar(255), `content` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM `schema_migrations`[0m
+  [1m[35m (1.5ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `authors` (`created_at`, `first_name`, `last_name`, `updated_at`) VALUES ('2012-11-16 05:06:52', 'Michael', 'Hartl', '2012-11-16 05:06:52')
+  [1m[36m (67.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `authors` (`created_at`, `first_name`, `last_name`, `updated_at`) VALUES ('2012-11-16 05:06:52', ' Dave Thomas', 'David Heinemeier Hansson', '2012-11-16 05:06:52')[0m
+  [1m[35m (57.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `articles` (`author_id`, `content`, `created_at`, `name`, `published_at`, `updated_at`) VALUES (1, 'With this book, you will learn how to use ActiveRecord to connect business objects and database tables. No more painful object-relational mapping\n', '2012-11-16 05:06:53', 'Agile Web Development with Rails', '2012-11-02 05:06:53', '2012-11-16 05:06:53')
+  [1m[36m (51.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `articles` (`author_id`, `content`, `created_at`, `name`, `published_at`, `updated_at`) VALUES (2, 'Since its debut in 2004, Ruby on Rails has rapidly become one of the most powerful and popular frameworks for building dynamic web applications \n', '2012-11-16 05:06:53', 'Ruby on Rails Tutorial', '2012-10-26 05:06:53', '2012-11-16 05:06:53')[0m
+  [1m[35m (45.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `articles` (`author_id`, `content`, `created_at`, `name`, `published_at`, `updated_at`) VALUES (2, 'Ruby on Rails 3.1 was released recently. While lot of great Ruby on Rails books out there target Rails 2, do not make the mistake of buying a Rails 2\n', '2012-11-16 05:06:53', ' Rails Books', '2012-10-12 05:06:53', '2012-11-16 05:06:53')
+  [1m[36m (37.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `comments` (`article_id`, `content`, `created_at`, `name`, `updated_at`) VALUES (2, 'I have considered (on many occasions) setting up a Rails Tutorial forum, but experience shows that creating maintaining and moderating a discussion forum is almost as big a time-sink as one-on-one tech support', '2012-11-16 05:06:53', 'Lois Lane', '2012-11-16 05:06:53')[0m
+  [1m[35m (30.0ms)[0m  COMMIT
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `comments` (`article_id`, `content`, `created_at`, `name`, `updated_at`) VALUES (1, 'Hi my friends its me again xD i resolved the problem and everything is working out excellent, how i say i just have installed everything, but i wont made one thing. And its copy the \'libmySQL.dll\' from my mysql folder to ruby in and thats all you have to do whit the version 5.0 because with the version 5.1 give a lot a problem', '2012-11-16 05:06:53', 'The Joker', '2012-11-16 05:06:53')
+  [1m[36m (31.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `comments` (`article_id`, `content`, `created_at`, `name`, `updated_at`) VALUES (1, 'Rails Forum has only a few rules, but they\'re important and we expect all of our users to follow them. Breaking these rules could result in your membership privileges being revoked', '2012-11-16 05:06:53', 'Robin', '2012-11-16 05:06:53')[0m
+  [1m[35m (31.8ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `comments` (`article_id`, `content`, `created_at`, `name`, `updated_at`) VALUES (1, 'Errors in the tutorial can be reported by email, but please triple-check before emailing me; at this point the overwhelming majority of reported issues are not actual errors in the text. (Note: I no longer monitor the Rails Tutorial Get Satisfaction page, where bugs used to be reported, but some community members still answer questions posted there', '2012-11-16 05:06:53', 'Riddler', '2012-11-16 05:06:53')
+  [1m[36m (31.5ms)[0m  [1mCOMMIT[0m
+
+
+Started GET "/articles?utf8=%E2%9C%93&search=meet" for 127.0.0.1 at 2012-11-16 11:10:22 +0530
+  Processing by ArticlesController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"meet"}
+  [1m[32mSphinx Query (1.5ms)[0m  [1mmeet[0m
+  [1m[32mSphinx[0m  Found 1 result
+  [1m[36mArticle Load (0.5ms)[0m  [1mSELECT `articles`.* FROM `articles` WHERE `articles`.`id` IN (2)[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `comments` WHERE `comments`.`article_id` = 2
+  [1m[36mAuthor Load (0.3ms)[0m  [1mSELECT `authors`.* FROM `authors` WHERE `authors`.`id` = 2 LIMIT 1[0m
+Rendered articles/index.html.erb within layouts/application (93.1ms)
+Completed 200 OK in 176ms (Views: 134.6ms | ActiveRecord: 3.4ms | Sphinx: 1.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-16 11:10:23 +0530
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2012-11-16 11:10:23 +0530
+Served asset /articles.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2012-11-16 11:10:23 +0530
+Served asset /articles.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-16 11:10:23 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-16 11:10:23 +0530
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2012-11-16 11:10:23 +0530
+Served asset /comments.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2012-11-16 11:10:23 +0530
+Served asset /comments.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-16 11:10:23 +0530
+Served asset /application.js - 304 Not Modified (0ms)
+  [1m[36m (0.2ms)[0m  [1mSELECT @@global.sql_mode, @@session.sql_mode;[0m
+  [1m[36m (0.1ms)[0m  [1mSELECT @@global.sql_mode, @@session.sql_mode;[0m

@@ -1,0 +1,6 @@
+[Fri Nov 16 10:02:51.836 2012] 0.006 sec [all/2/rel 3 (0,20)] [article_core]
+[Fri Nov 16 10:03:01.700 2012] 0.023 sec [all/2/rel 0 (0,20)] [article_core] test
+[Fri Nov 16 10:03:12.065 2012] 0.000 sec [all/2/rel 2 (0,20)] [article_core] book
+[Fri Nov 16 10:05:44.166 2012] 0.000 sec [all/2/rel 1 (0,20)] [article_core] meet
+[Fri Nov 16 10:08:21.912 2012] 0.000 sec [all/2/rel 1 (0,20)] [article_core] meet
+[Fri Nov 16 11:10:23.467 2012] 0.000 sec [all/2/rel 1 (0,20)] [article_core] meet
